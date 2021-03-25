@@ -1,24 +1,28 @@
---- getrandom-0.1.14/Cargo.toml	2020-01-07T12:06:26+00:00
-+++ getrandom-0.1.14/Cargo.toml	2020-01-07T17:41:30.197945+00:00
-@@ -41,21 +41,9 @@
- dummy = []
- rustc-dep-of-std = ["compiler_builtins", "core"]
+diff -up getrandom-0.2.2/Cargo.toml.1~ getrandom-0.2.2/Cargo.toml
+--- getrandom-0.2.2/Cargo.toml.1~	1970-01-01 01:00:00.000000000 +0100
++++ getrandom-0.2.2/Cargo.toml	2021-03-24 23:15:43.382793832 +0100
+@@ -38,23 +38,10 @@ package = "rustc-std-workspace-core"
+ 
+ [features]
+ custom = []
+-js = ["wasm-bindgen", "js-sys"]
+ rdrand = []
+-rustc-dep-of-std = ["compiler_builtins", "core", "libc/rustc-dep-of-std", "wasi/rustc-dep-of-std"]
++rustc-dep-of-std = ["compiler_builtins", "core", "libc/rustc-dep-of-std"]
  std = []
--test-in-browser = ["wasm-bindgen"]
+ test-in-browser = []
+-[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dependencies.js-sys]
+-version = "0.3"
+-optional = true
+-
+-[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dependencies.wasm-bindgen]
+-version = "0.2.62"
+-optional = true
+-default-features = false
+-[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dev-dependencies.wasm-bindgen-test]
+-version = "0.3.18"
 -[target."cfg(target_os = \"wasi\")".dependencies.wasi]
--version = "0.9"
+-version = "0.10"
  [target."cfg(unix)".dependencies.libc]
  version = "0.2.64"
  default-features = false
--[target.wasm32-unknown-unknown.dependencies.stdweb]
--version = "0.4.18"
--optional = true
--
--[target.wasm32-unknown-unknown.dependencies.wasm-bindgen]
--version = "0.2.29"
--optional = true
--[target.wasm32-unknown-unknown.dev-dependencies.wasm-bindgen-test]
--version = "0.2"
- [badges.appveyor]
- repository = "rust-random/getrandom"
- 
