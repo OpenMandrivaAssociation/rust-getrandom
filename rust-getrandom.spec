@@ -5,7 +5,7 @@
 
 Name:           rust-%{crate}
 Version:        0.2.2
-Release:        1
+Release:        2
 Summary:        Small cross-platform library for retrieving random data from system source
 
 # Upstream license specification: MIT OR Apache-2.0
