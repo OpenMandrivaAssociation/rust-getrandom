@@ -1,28 +1,41 @@
-diff -up getrandom-0.2.2/Cargo.toml.1~ getrandom-0.2.2/Cargo.toml
---- getrandom-0.2.2/Cargo.toml.1~	1970-01-01 01:00:00.000000000 +0100
-+++ getrandom-0.2.2/Cargo.toml	2021-03-24 23:15:43.382793832 +0100
-@@ -38,23 +38,10 @@ package = "rustc-std-workspace-core"
+diff -up getrandom-0.2.15/Cargo.toml.1~ getrandom-0.2.15/Cargo.toml
+--- getrandom-0.2.15/Cargo.toml.1~	2024-08-03 21:32:11.747484586 +0200
++++ getrandom-0.2.15/Cargo.toml	2024-08-03 21:33:31.704764305 +0200
+@@ -84,37 +84,16 @@ package = "rustc-std-workspace-core"
  
  [features]
  custom = []
--js = ["wasm-bindgen", "js-sys"]
+-js = [
+-    "wasm-bindgen",
+-    "js-sys",
+-]
+ linux_disable_fallback = []
  rdrand = []
--rustc-dep-of-std = ["compiler_builtins", "core", "libc/rustc-dep-of-std", "wasi/rustc-dep-of-std"]
-+rustc-dep-of-std = ["compiler_builtins", "core", "libc/rustc-dep-of-std"]
+ rustc-dep-of-std = [
+     "compiler_builtins",
+     "core",
+     "libc/rustc-dep-of-std",
+-    "wasi/rustc-dep-of-std",
+ ]
  std = []
  test-in-browser = []
--[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dependencies.js-sys]
+ 
+-[target."cfg(all(any(target_arch = \"wasm32\", target_arch = \"wasm64\"), target_os = \"unknown\"))".dependencies.js-sys]
 -version = "0.3"
 -optional = true
 -
--[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dependencies.wasm-bindgen]
+-[target."cfg(all(any(target_arch = \"wasm32\", target_arch = \"wasm64\"), target_os = \"unknown\"))".dependencies.wasm-bindgen]
 -version = "0.2.62"
 -optional = true
 -default-features = false
--[target."cfg(all(target_arch = \"wasm32\", target_os = \"unknown\"))".dev-dependencies.wasm-bindgen-test]
+-
+-[target."cfg(all(any(target_arch = \"wasm32\", target_arch = \"wasm64\"), target_os = \"unknown\"))".dev-dependencies.wasm-bindgen-test]
 -version = "0.3.18"
+-
 -[target."cfg(target_os = \"wasi\")".dependencies.wasi]
--version = "0.10"
+-version = "0.11"
+-default-features = false
+-
  [target."cfg(unix)".dependencies.libc]
- version = "0.2.64"
+ version = "0.2.154"
  default-features = false

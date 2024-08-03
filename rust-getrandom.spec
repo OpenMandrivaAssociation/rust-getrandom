@@ -4,8 +4,8 @@
 %global crate getrandom
 
 Name:           rust-%{crate}
-Version:        0.2.2
-Release:        2
+Version:        0.2.15
+Release:        1
 Summary:        Small cross-platform library for retrieving random data from system source
 
 # Upstream license specification: MIT OR Apache-2.0
@@ -76,30 +76,6 @@ This package contains library source intended for building other packages
 which use "core" feature of "%{crate}" crate.
 
 %files       -n %{name}+core-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+dummy-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+dummy-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "dummy" feature of "%{crate}" crate.
-
-%files       -n %{name}+dummy-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+log-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+log-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "log" feature of "%{crate}" crate.
-
-%files       -n %{name}+log-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %package     -n %{name}+rustc-dep-of-std-devel
